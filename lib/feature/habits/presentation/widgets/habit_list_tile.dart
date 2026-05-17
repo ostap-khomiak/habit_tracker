@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/core/util/date_utils.dart';
 import 'package:habit_tracker/feature/habits/domain/entities/habit.dart';
 
 class HabitListTile extends StatelessWidget {
@@ -16,6 +17,7 @@ class HabitListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Color(habit.colorValue);
+    final isScheduledToday = habit.scheduledWeekdays.contains(today.weekday);
 
     return ListTile(
       leading: CircleAvatar(
@@ -32,7 +34,7 @@ class HabitListTile extends StatelessWidget {
       trailing: Checkbox(
         value: isDoneToday,
         activeColor: color,
-        onChanged: (v) => onToggle(v ?? false),
+        onChanged: isScheduledToday ? (v) => onToggle(v ?? false) : null,
       ),
     );
   }

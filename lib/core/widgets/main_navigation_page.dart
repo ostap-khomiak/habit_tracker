@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:habit_tracker/core/router/router_names.dart';
+import 'package:habit_tracker/core/router/router_paths.dart';
 
 class MainNavigationPage extends StatelessWidget {
   final Widget child;
@@ -10,8 +11,8 @@ class MainNavigationPage extends StatelessWidget {
   int _getCurrentIndex(BuildContext context) {
     final location = GoRouterState.of(context).uri.toString();
 
-    if (location.startsWith('/stats')) return 1;
-    if (location.startsWith('/settings')) return 2;
+    if (location.startsWith(RoutePaths.stats)) return 1;
+    if (location.startsWith(RoutePaths.settings)) return 2;
 
     return 0;
   }
