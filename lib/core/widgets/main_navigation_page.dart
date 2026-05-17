@@ -37,7 +37,7 @@ class MainNavigationPage extends StatelessWidget {
     final currentIndex = _getCurrentIndex(context);
 
     return Scaffold(
-      // to avoid overlapping and respect phones safe area
+      // to avoid overlapping and respect phones (or any other screen) safe area
       body: SafeArea(child: child),
 
       bottomNavigationBar: BottomNavigationBar(

@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+const habitIcons = [
+  Icons.fitness_center,
+  Icons.book,
+  Icons.local_drink,
+  Icons.bedtime,
+  Icons.code,
+  Icons.directions_run,
+  Icons.self_improvement,
+  Icons.restaurant,
+  Icons.language,
+  Icons.music_note,
+  Icons.brush,
+  Icons.directions_bike,
+  Icons.spa,
+  Icons.school,
+  Icons.favorite,
+  Icons.emoji_nature,
+  Icons.local_cafe,
+  Icons.outdoor_grill,
+  Icons.sports_soccer,
+  Icons.piano,
+  Icons.volunteer_activism,
+  Icons.travel_explore,
+  Icons.cleaning_services,
+  Icons.work,
+];
