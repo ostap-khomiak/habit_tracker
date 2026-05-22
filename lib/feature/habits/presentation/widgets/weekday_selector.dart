@@ -22,25 +22,52 @@ class WeekdaySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: _days.map(((int, String) entry) {
         final (day, label) = entry;
         final isSelected = selected.contains(day);
-        return FilterChip(
-          label: Text(label),
-          selected: isSelected,
-          onSelected: (checked) {
-            final next = List<int>.from(selected);
-            if (checked) {
-              next
-                ..add(day)
-                ..sort();
-            } else {
-              next.remove(day);
-            }
-            onChanged(next);
-          },
+        return Expanded(
+          child: GestureDetector(
+            onTap: () {
+              final next = List<int>.from(selected);
+              if (isSelected) {
+                next.remove(day);
+              } else {
+                next
+                  ..add(day)
+                  ..sort();
+              }
+              onChanged(next);
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isSelected
+                        ? colorScheme.primary
+                        : colorScheme.surfaceContainerHighest,
+                  ),
+                  child: Center(
+                    child: Text(
+                      label,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: isSelected
+                            ? colorScheme.onPrimary
+                            : colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         );
       }).toList(),
     );
