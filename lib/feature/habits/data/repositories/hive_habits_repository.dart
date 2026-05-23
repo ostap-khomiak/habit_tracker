@@ -59,7 +59,6 @@ class HiveHabitsRepository implements HabitsRepository {
   Stream<Set<DateTime>> watchCompletions(String habitId) async* {
     yield _completionsForHabit(habitId);
     await for (final event in _completionsBox.watch()) {
-      // only re-emit when a key belonging to this habit changed
       if (event.key is String &&
           (event.key as String).startsWith('$habitId|')) {
         yield _completionsForHabit(habitId);

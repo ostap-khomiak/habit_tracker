@@ -47,3 +47,16 @@ app.*.map.json
 CLAUDE.md
 .claude/
 HANDOFF.md
+
+# Firebase
+lib/firebase_options.dart
+android/app/google-services.json
+android/app/src/*/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+macos/Runner/GoogleService-Info.plist
+macos/firebase_app_id_file.json
+web/firebase-config.js
+.firebase/
+firebase-debug.log
+firestore-debug.log

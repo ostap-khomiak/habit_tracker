@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
@@ -8,10 +10,14 @@ import 'package:habit_tracker/feature/habits/data/models/habit_completion_hive_m
 import 'package:habit_tracker/feature/habits/data/models/habit_hive_model.dart';
 import 'package:habit_tracker/feature/habits/presentation/providers/habits_providers.dart';
 import 'package:habit_tracker/feature/settings/presentation/providers/theme_mode_provider.dart';
+import 'package:habit_tracker/firebase_options.dart';
 import 'package:habit_tracker/hive_registrar.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseFirestore.instance.settings = const Settings(persistenceEnabled: true);
 
   await Hive.initFlutter();
   Hive.registerAdapters();
