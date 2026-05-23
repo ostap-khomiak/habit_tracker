@@ -74,10 +74,10 @@ Run `flutterfire configure`
 
 ## Platform support
 
-| Platform | Runs | Google Sign-In | Notes |
-|---|---|---|---|
-| Android | yes | yes | Primary target |
-| iOS | yes | yes | Requires `GoogleService-Info.plist` |
-| macOS | yes | yes | Requires `GoogleService-Info.plist` |
-| Web | yes | yes | Web client ID already in `web/index.html` |
-| Windows | yes | no | `google_sign_in` has no Windows plugin |
+| Platform | Runs | Google Sign-In | 
+|---|---|---|
+| Android | yes | yes |
+| iOS | yes | ? | - not tested yet
+| macOS | yes | ? | - not tested yet
+| Web | yes | no |
+| Windows | yes | no |
