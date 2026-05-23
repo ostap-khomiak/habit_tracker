@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_tracker/feature/auth/data/migration/hive_to_firestore_migration.dart';
 import 'package:habit_tracker/feature/auth/data/repositories/firebase_auth_repository.dart';
+import 'package:habit_tracker/feature/auth/data/sync/firestore_to_hive_sync.dart';
 import 'package:habit_tracker/feature/auth/presentation/providers/auth_providers.dart';
 import 'package:habit_tracker/feature/habits/presentation/providers/habits_providers.dart';
 import 'package:habit_tracker/feature/settings/presentation/providers/theme_mode_provider.dart';
@@ -36,6 +37,15 @@ class SettingsPage extends ConsumerWidget {
 
   Future<void> _signOut(BuildContext context, WidgetRef ref) async {
     try {
+      // mirror firestore state into Hive
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        await syncFirestoreToHive(
+          uid: user.uid,
+          habitsBox: ref.read(habitsBoxProvider),
+          completionsBox: ref.read(completionsBoxProvider),
+        );
+      }
       await ref.read(authRepositoryProvider).signOut();
     } catch (e) {
       if (context.mounted) {

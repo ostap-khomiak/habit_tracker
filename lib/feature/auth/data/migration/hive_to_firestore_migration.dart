@@ -18,8 +18,23 @@ Future<void> migrateIfNeeded({
       .collection('_meta')
       .doc('migration');
 
-  final metaDoc = await metaRef.get();
-  if (metaDoc.exists) return; // already migrated on a previous sign-in
+  try {
+    final metaDoc = await metaRef.get();
+    if (metaDoc.exists) return;
+  } on FirebaseException catch (e) {
+    if (e.code == 'unavailable') {
+      try {
+        final cached = await metaRef.get(
+          const GetOptions(source: Source.cache),
+        );
+        if (cached.exists) return;
+      } catch (_) {
+        // no cached value
+      }
+    } else {
+      rethrow;
+    }
+  }
 
   final batch = db.batch();
 
