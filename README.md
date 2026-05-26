@@ -1,5 +1,10 @@
 # Habit Tracker
 
+![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth-FFCA28?logo=firebase&logoColor=black)
+![Riverpod](https://img.shields.io/badge/Riverpod-3.x-00B4D8?logoColor=white)
+
 A cross-platform mobile habit tracking app built with Flutter. Create habits with custom icons and colours, track daily completions, visualise consistency with a monthly heatmap calendar, and sync everything to the cloud with Google Sign-In.
 
 <p align="center">
@@ -25,11 +30,6 @@ A cross-platform mobile habit tracking app built with Flutter. Create habits wit
 ---
 
 ## Tech Stack
-
-![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth-FFCA28?logo=firebase&logoColor=black)
-![Riverpod](https://img.shields.io/badge/Riverpod-3.x-00B4D8?logoColor=white)
 
 | Concern | Library |
 |---|---|
